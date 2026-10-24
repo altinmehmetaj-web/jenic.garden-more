@@ -275,3 +275,35 @@ html{scroll-behavior:auto}
 .legal-page a{color:#245c40;text-decoration:underline}
 .legal-warning{margin-top:35px;padding:20px;border-left:4px solid #bd9a5b;background:#f2f5ef;color:#425348;border-radius:8px}
 .legal-page ul{padding-left:22px}
+/* LOGO JENIC - CORREZIONE DEFINITIVA */
+.brand {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    width: auto !important;
+    height: auto !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.brand img {
+    width: 115px !important;
+    height: 65px !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    margin: 0 auto !important;
+}
+
+@media (max-width: 760px) {
+    .brand img {
+        width: 100px !important;
+        height: 58px !important;
+    }
+}
