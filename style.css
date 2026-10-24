@@ -307,3 +307,26 @@ html{scroll-behavior:auto}
         height: 58px !important;
     }
 }
+/* LOGO FOOTER JENIC */
+.footer-brand {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    background: transparent !important;
+}
+
+.footer-brand img {
+    width: 110px !important;
+    max-width: 110px !important;
+    height: auto !important;
+    display: block !important;
+    object-fit: contain !important;
+    margin: 0 auto 15px !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+}
