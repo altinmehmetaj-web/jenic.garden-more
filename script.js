@@ -24,8 +24,64 @@ mainNav.querySelectorAll("a").forEach(link => {
   });
 });
 
-// Modulo preventivo: apre WhatsApp
-document.getElementById("quoteForm").addEventListener("submit", event => {
+// MODULO PREVENTIVO - INVIO A FORMSPREE
+const quoteForm = document.getElementById("quoteForm");
+
+if (quoteForm) {
+    quoteForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const button = quoteForm.querySelector('button[type="submit"]');
+
+        let feedback = quoteForm.querySelector(".form-feedback");
+
+        if (!feedback) {
+            feedback = document.createElement("p");
+            feedback.className = "form-feedback";
+            feedback.setAttribute("role", "status");
+            quoteForm.appendChild(feedback);
+        }
+
+        if (button) {
+            button.disabled = true;
+            button.textContent = "Invio in corso...";
+        }
+
+        try {
+            const response = await fetch(
+                "https://formspree.io/f/mwlllbwk",
+                {
+                    method: "POST",
+                    body: new FormData(quoteForm),
+                    headers: {
+                        "Accept": "application/json"
+                    }
+                }
+            );
+
+            if (!response.ok) {
+                throw new Error("Invio non riuscito");
+            }
+
+            feedback.textContent =
+                "Grazie! La tua richiesta è stata inviata correttamente.";
+            feedback.style.color = "green";
+
+            quoteForm.reset();
+
+        } catch (error) {
+            feedback.textContent =
+                "Errore durante l'invio. Riprova oppure contattaci su WhatsApp.";
+            feedback.style.color = "red";
+
+        } finally {
+            if (button) {
+                button.disabled = false;
+                button.textContent = "Invia richiesta";
+            }
+        }
+    });
+}
   event.preventDefault();
 
   const name = document.getElementById("name").value.trim();
